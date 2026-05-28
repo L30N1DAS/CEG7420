@@ -1,10 +1,12 @@
 #include <stdio.h>
 
 /*
- * Optimization levels demo:
- * -O0 : no optimization, preserves all structures.
- * -O1 : basic optimization.
- * -Og : optimize for debugging experience.
+ * This file is meant to be compiled at different optimization levels.
+ *
+ * Practical guide for this example on GCC on this system:
+ * -O0 : keeps the code structure closest to the source.
+ * -Og : keeps a debug-friendly shape while still doing some optimization.
+ * -O1 : removes unused code and simplifies the dead branch below.
  * -O2 : further reshapes the loop in compute_sum().
  * -O3 : may apply more aggressive loop and inlining decisions than -O2.
  * -Os : optimizes for size, often keeping many of the simplifications from -O2.
