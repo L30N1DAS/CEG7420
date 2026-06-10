@@ -82,5 +82,9 @@ int main(void)
     show_compact_record_layout(&compact_record);
     show_wide_header_layout(&wide_header);
 
+    record_entry.kind = "A";
+    record_entry.weight = 300;
+    record_entry.delta = 0;
+
     return 0;
 }

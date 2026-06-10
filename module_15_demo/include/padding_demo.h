@@ -8,16 +8,16 @@ typedef struct RecordEntry {
 } RecordEntry;
 
 typedef struct CompactRecord {
-    int weight;
-    short delta;
-    char kind;
-    char code;
+    int weight;         // 4 bytes
+    short delta;        // 2 bytes
+    char kind;          // 1 byte
+    char code;          // 1 byte
 } CompactRecord;
 
 typedef struct WideHeader {
-    char flag;
-    double value;
-    short code;
+    char flag;          // 1 byte
+    double value;       // 8 bytes
+    short code;         // 2 bytes
 } WideHeader;
 
 #endif
