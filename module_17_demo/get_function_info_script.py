@@ -23,12 +23,12 @@ for f in allFuncs:
     parameter_cnt = f.getParameterCount()
     parameter_list = f.getParameters()
     for i in parameter_list:
-        print("parameter:\t\t{}".format(i))
+        print("parameter:\t\t{}".format(i.getName()))
 
     local_variables = f.getLocalVariables()
     for i in local_variables:
-        print("local variable:\t\t{}".format(i))
+        print("local variable:\t\t{}".format(i.getName()))
 
     ret_variable = f.getReturn()
     ret_variable_type = f.getReturnType()
-    print("return variable: {} with the type of {}".format(ret_variable, ret_variable_type))
+    print("return variable: {} with the type of {}".format(ret_variable.getName(), ret_variable_type))
