@@ -15,5 +15,5 @@ if myFunc:
             print("a ref to this address {}: {}".format(addr, i))
 
         cnt += 1
-        if cnt > 9:
+        if cnt > 50:
             break
