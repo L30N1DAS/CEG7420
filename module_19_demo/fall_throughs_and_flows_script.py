@@ -12,9 +12,10 @@ if myFunc:
     instructionIterator = myListing.getInstructions(fbody, True)
     for inst in instructionIterator:
 
-        print("-"*10)
-
         if inst.getMnemonicString().startswith("J") or inst.getMnemonicString().startswith("CALL") or inst.getMnemonicString().startswith("RET"):
+
+            print("-"*10)
+            
             print("{}\t{}".format(inst.getAddress(), inst))
 
             addrFallThrough = inst.getFallThrough()
