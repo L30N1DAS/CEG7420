@@ -23,7 +23,10 @@ for f in allFuncs:
 
         allBackwardJumpRefsFromInst = filter(lambda x: x.getFromAddress() > x.getToAddress(), allJumpRefsFromInst)
 
-        if len(allBackwardJumpRefsFromInst) > 0:
+        # if len(allBackwardJumpRefsFromInst) > 0:
+        # doesn't work because filter returns a filter object, not a list
+        # so we need to convert it to a list first
+        if len(list(allBackwardJumpRefsFromInst)) > 0:
             funcsWithLoop.add(f)
 
 print("Functions with loop:")
