@@ -12,7 +12,8 @@ if myFunc:
     instructionIterator = myListing.getInstructions(fbody, True)
     for inst in instructionIterator:
 
-        if inst.getMnemonicString().startswith("J") or inst.getMnemonicString().startswith("CALL") or inst.getMnemonicString().startswith("RET"):
+        # J = b, CALL = bl, RET = ret
+        if inst.getMnemonicString().startswith("b") or inst.getMnemonicString().startswith("ret"):
 
             print("-"*10)
             
