@@ -4,6 +4,8 @@
 
 # Enumerate all callees of the current function.
 
+calleeSet = set()
+
 myFunc = getFunctionContaining(currentAddress)
 if myFunc:
     print(myFunc)
@@ -12,9 +14,14 @@ if myFunc:
     instructionIterator = myListing.getInstructions(fbody, True)
     for inst in instructionIterator:
 
-        # CALL = bl
+        # CALL = bl; NOTE: this doesn't work great on ARM due to indirect calls like blx, but it works for most cases
         if inst.getMnemonicString().startswith("bl"):
 
             calleeAddress = inst.getOpObjects(0)[0]
             callee = getFunctionAt(calleeAddress)
-            print("{} calls {}.".format(myFunc, callee))
+            calleeSet.add(callee)
+
+print("{} has following callees:".format(myFunc))
+
+for i in calleeSet:
+    print("\t{}".format(i))
