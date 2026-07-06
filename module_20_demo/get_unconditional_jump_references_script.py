@@ -2,6 +2,8 @@
 # @category: GhidraScripting
 # @author: Junjie Zhang
 
+from ghidra.program.model.symbol import RefType
+
 myListing = currentProgram.getListing()
 instructionIterator = myListing.getInstructions(True)
 for inst in instructionIterator:
