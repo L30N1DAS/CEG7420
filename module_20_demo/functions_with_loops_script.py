@@ -19,7 +19,7 @@ for f in allFuncs:
 
         allRefsFromInst = getReferencesFrom(inst.getAddress())
 
-        allJumpRefsFromInst = filter(lambda x: x.isJump(), allRefsFromInst)
+        allJumpRefsFromInst = filter(lambda x: x.getReferenceType().isJump(), allRefsFromInst)
 
         allBackwardJumpRefsFromInst = filter(lambda x: x.getFromAddress() > x.getToAddress(), allJumpRefsFromInst)
 
