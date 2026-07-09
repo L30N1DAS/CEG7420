@@ -2,6 +2,8 @@
 # @category: assignment3_scripts
 # @author: Anmol Saini
 
+from ghidra.program.model.symbol import RefType
+
 myFunc = getFunctionContaining(currentAddress)
 
 if myFunc:
