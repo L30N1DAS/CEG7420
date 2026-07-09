@@ -14,8 +14,8 @@ if myFunc:
 		for i in getReferencesFrom(addr):
 			print("a ref from this address {}: {}".format(addr, i))
 			if i.getReferenceType() == RefType.UNCONDITIONAL_JUMP:
-			    unconditionalJumpFromRefsCount += 1
-        for i in getReferencesTo(addr):
+				unconditionalJumpFromRefsCount += 1
+		for i in getReferencesTo(addr):
 			print("a ref to this address {}: {}".format(addr, i))
 			if i.getReferenceType() == RefType.UNCONDITIONAL_JUMP:
 				unconditionalJumpToRefsCount += 1
