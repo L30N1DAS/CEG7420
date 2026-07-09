@@ -8,7 +8,7 @@ if myFunc:
 	print(myFunc.getName())
 	fbody = myFunc.getBody()
 	fromRefsCount = 0
-    toRefsCount = 0
+	toRefsCount = 0
 
 	for addr in fbody.getAddresses(True):
 		for i in getReferencesFrom(addr):
