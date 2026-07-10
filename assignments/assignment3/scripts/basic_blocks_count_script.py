@@ -8,5 +8,10 @@ from ghidra.program.model.block import BasicBlockModel
 
 myBlockModel = BasicBlockModel(currentProgram)
 myBasicBlocks = myBlockModel.getCodeBlocks(monitor)
+basicBlocksCount = 0
+
 for i in myBasicBlocks:
     print(i)
+    basicBlocksCount += 1
+
+print('Total basic blocks in the binary: {}'.format(basicBlocksCount))
