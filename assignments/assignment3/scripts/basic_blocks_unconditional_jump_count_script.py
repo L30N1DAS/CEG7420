@@ -3,6 +3,7 @@
 # @author: Anmol Saini
 
 from ghidra.program.model.block import BasicBlockModel
+from ghidra.program.model.symbol import FlowType
 
 myBlockModel = BasicBlockModel(currentProgram)
 myBasicBlocks = myBlockModel.getCodeBlocks(monitor)
