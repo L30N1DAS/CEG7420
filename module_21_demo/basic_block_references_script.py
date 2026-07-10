@@ -18,8 +18,10 @@ print("Identified Basic Block: {}".format(myBasicBlock.getName()))
 incomingEdges = myBasicBlock.getSources(monitor)
 outgoingEdges = myBasicBlock.getDestinations(monitor)
 
-for i in incomingEdges:
+while incomingEdges.hasNext():
+    i = incomingEdges.next()
     print("incoming edge: src: {}, dest: {}".format(i.getSourceAddress(), i.getDestinationAddress()))
 
-for i in outgoingEdges:
+while outgoingEdges.hasNext():
+    i = outgoingEdges.next()
     print("outgoing edge: src: {}, dest: {}".format(i.getSourceAddress(), i.getDestinationAddress()))
