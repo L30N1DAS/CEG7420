@@ -13,19 +13,22 @@ targetBasicBlock = myBlockModel.getFirstCodeBlockContaining(addr, monitor)
 if not targetBasicBlock:
     exit()
 
-processedBasicBlocks = []
+processedBasicBlocks = set()
 toBeProcessedBasicBlocks = [targetBasicBlock]
 
 while len(toBeProcessedBasicBlocks) > 0:
     one = toBeProcessedBasicBlocks.pop(0) # to dequeue the array
-    processedBasicBlocks.append(one)
+    processedBasicBlocks.add(one)
     incomingEdges = one.getSources(monitor)
     while incomingEdges.hasNext():
         incomingRef = incomingEdges.next()
-        srcBasicBlock = incomingRef.getSourceBlock()
-        if srcBasicBlock:
-            if not (srcBasicBlock in processedBasicBlocks):
-                toBeProcessedBasicBlocks.append(srcBasicBlock)
+        # an incoming ref can be DATA or INDIRECTION. So you may want to exclude them.
+        if incomingRef.getFlowType().hasFallthrough() or incomingRef.getFlowType().isJump():
+            srcBasicBlock = incomingRef.getSourceBlock()
+            if srcBasicBlock:
+                if not (srcBasicBlock in processedBasicBlocks):
+                    print(srcBasicBlock)
+                    toBeProcessedBasicBlocks.append(srcBasicBlock)
 
 print("The target basic block {} is reachable from the following basic blocks:".format(targetBasicBlock.getName()))
 print([i.getName() for i in processedBasicBlocks])
