@@ -2,8 +2,6 @@
 # @category: assignment3_scripts
 # @author: Anmol Saini
 
-# To enumerate all basic blocks in the current function.
-
 from ghidra.program.model.block import BasicBlockModel
 
 myBlockModel = BasicBlockModel(currentProgram)
@@ -18,5 +16,5 @@ if currentFunc:
         name = i.getName()
         print('Name: {}, Starting Address: {}'.format(name, i.getFirstStartAddress()))
         basicBlocksCount += 1
-        
+
     print('Total basic blocks in function {}: {}'.format(currentFunc.getName(), basicBlocksCount))

@@ -2,8 +2,6 @@
 # @category: assignment3_scripts
 # @author: Anmol Saini
 
-# To enumerate all basic blocks in a binary.
-
 from ghidra.program.model.block import BasicBlockModel
 
 myBlockModel = BasicBlockModel(currentProgram)
