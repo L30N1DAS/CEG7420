@@ -22,9 +22,7 @@ while len(toBeProcessedBasicBlocks) > 0:
     incomingEdges = one.getSources(monitor)
     while incomingEdges.hasNext():
         incomingRef = incomingEdges.next()
-        print("incoming Ref:{}".format(incomingRef))
-        srcAddr = incomingRef.getSourceAddress()
-        srcBasicBlock = myBlockModel.getFirstCodeBlockContaining(srcAddr, monitor)
+        srcBasicBlock = incomingRef.getSourceBlock()
         if srcBasicBlock:
             if not (srcBasicBlock in processedBasicBlocks):
                 toBeProcessedBasicBlocks.append(srcBasicBlock)
