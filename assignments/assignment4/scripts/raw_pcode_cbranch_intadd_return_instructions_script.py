@@ -1,4 +1,4 @@
-# Assignment 4: Raw P-code CBRANCH instructions in main
+# Assignment 4: Raw P-code CBRANCH, INT_ADD, and RETURN instructions in main
 # @category: assignment4_scripts
 # @author: Anmol Saini
 
@@ -6,7 +6,9 @@ from ghidra.program.model.pcode import PcodeOp
 
 addr = currentAddress # currentAddress is the address indicated by your cursor.
 func = getFunctionContaining(addr)
-cnt = 0
+cnt_cbranch = 0
+cnt_intadd = 0
+cnt_return = 0
 
 if func:
     fbody = func.getBody() # fbody is an object of AddressSetView
@@ -17,6 +19,14 @@ if func:
         for pcode in pcodeList:
             if pcode.getOpcode() == PcodeOp.CBRANCH:
                 print(pcode)
-                cnt += 1
+                cnt_cbranch += 1
+            elif pcode.getOpcode() == PcodeOp.INT_ADD:
+                print(pcode)
+                cnt_intadd += 1
+            elif pcode.getOpcode() == PcodeOp.RETURN:
+                print(pcode)
+                cnt_return += 1
 
-print("Total CBRANCH instructions found: {}".format(cnt))
+print("Total CBRANCH instructions found: {}".format(cnt_cbranch))
+print("Total INT_ADD instructions found: {}".format(cnt_intadd))
+print("Total RETURN instructions found: {}".format(cnt_return))
