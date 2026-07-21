@@ -36,7 +36,7 @@ for op in pcode_seq:
             if hs and hs.isParameter():
                 # Add the formatted string to the set instead of the Varnode object
                 # This ensures Python evaluates uniqueness based on the text values
-                paramSet.add("varnode: {}, high variable name: {}, symbol name: {}".format(invar, hv.getName(), hs.getName()))
+                paramSet.add("varnode: {}, high variable name: {} with type {}, symbol name: {}".format(invar, hv.getName(), hv.getDataType(), hs.getName()))
 
 print("all varnodes in refined pcode that are identified as parameters.")
 for unique_param in paramSet:

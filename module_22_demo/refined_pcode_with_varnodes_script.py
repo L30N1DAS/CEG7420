@@ -43,4 +43,4 @@ for invar in paramSet:
     if hv:
         hs = hv.getSymbol()
         if hs:
-            print("varnode: {}, high variable name: {}, symbol name: {}".format(invar, hv.getName(), hs.getName()))
+            print("varnode: {}, high variable name: {} with type {}, symbol name: {}".format(invar, hv.getName(), hv.getDataType(), hs.getName()))
