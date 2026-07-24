@@ -1,4 +1,4 @@
-# Assignment 4: Refined P-code instructions with input varnodes in main
+# Assignment 4: Refined P-code instructions with input varnodes used as parameters in main
 # @category: assignment4_scripts
 # @author: Anmol Saini
 
