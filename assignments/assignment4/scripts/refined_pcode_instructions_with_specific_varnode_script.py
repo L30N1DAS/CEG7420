@@ -4,11 +4,11 @@
 
 from ghidra.app.decompiler import *
 
+# Get the register address space for the current architecture
+reg_space = currentProgram.getAddressFactory().getRegisterSpace()
+
 # We will get refined p-code for the current function.
 func = getFunctionContaining(currentAddress)
-fbody = func.getBody() # fbody is an object of AddressSetView
-startAddress = fbody.getMinAddress()
-endAddress = fbody.getMaxAddress()
 
 myDecomp = DecompInterface()
 myDecomp.openProgram(currentProgram)
@@ -27,10 +27,10 @@ if results_highFunction is None:
     print("Fail to get the high function.")
     exit()
 
-varnodes_highFunction = results_highFunction.getVarnodes(startAddress, endAddress) # This will populate the varnode list in the high function
+varnodes_highFunction = results_highFunction.getVarnodes(reg_space) # Populate the list with ONLY register varnodes in this function
 
 for varnode in varnodes_highFunction:
-    if varnode.isRegister():
+    if varnode.isRegister() and varnode.getOffset() == 0x30 and varnode.getSize() == 8: # looking for (register, 0x30, 8) varnode
         print("varnode: {}".format(varnode))
 
         varnode_def = varnode.getDef()
