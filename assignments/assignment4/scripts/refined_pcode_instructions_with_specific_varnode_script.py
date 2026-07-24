@@ -31,7 +31,7 @@ varnodes_highFunction = results_highFunction.getVarnodes(reg_space) # Populate t
 
 for varnode in varnodes_highFunction:
     if varnode.isRegister() and varnode.getOffset() == 0x30 and varnode.getSize() == 8: # looking for (register, 0x30, 8) varnode
-        print("varnode: {}".format(varnode))
+        print("varnode {} with name {}:".format(varnode, varnode.getHigh().getName()))
 
         varnode_def = varnode.getDef()
         print("\t It is defined by: {}".format(varnode_def))
