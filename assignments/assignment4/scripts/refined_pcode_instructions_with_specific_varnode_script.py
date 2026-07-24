@@ -30,7 +30,7 @@ if results_highFunction is None:
 varnodes_highFunction = results_highFunction.getVarnodes(startAddress, endAddress) # This will populate the varnode list in the high function
 
 for varnode in varnodes_highFunction:
-    if varnode.isAddress():
+    if varnode.isRegister() and varnode.getOffset() == 0x30 and varnode.getSize() == 8:
         print("varnode: {}".format(varnode))
 
         varnode_def = varnode.getDef()
